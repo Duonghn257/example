@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="./assets/icons/fontawesome-free-6.1.1-web/css/all.css" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="sidebar">
+			<h3>My Dashboard</h3>
+			<div class="line"></div>
+			<ul>
+				<li>
+					<i class="fa-solid fa-house-chimney"></i>
+					<span>Dashboard</span>
+				</li>
+				<li>
+					<i class="fa-solid fa-gear"></i>
+					<span>Controls</span>
+				</li>
+				<li>
+					<i class="fa-solid fa-keyboard"></i>
+					<span>Keyboard</span>
+				</li>
+
+				<li>
+					<i class="fa-solid fa-bookmark"></i>
+					<span>History</span>
+				</li>
+				<li>
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<span>Sign Out</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="container">
+			<div class="header">
+				<h4>Dashboard</h4>
+				<div class="navigation">
+					<input type="text" name="Search" id="" placeholder="Search here" />
+					<i class="fa-solid fa-circle-user"></i>
+					<i class="fa-solid fa-gear"></i>
+					<i class="fa-solid fa-bell"></i>
+				</div>
+			</div>
+
+			<div class="content">
+				<div class="infomation">
+					<div class="col-4" style="--clr: tomato">
+						<div class="data-container">
+							<i class="fa-solid fa-temperature-half"></i>
+							<div class="data-content">
+								<h5>Temperature</h5>
+								<p>35°C</p>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="message">
+							<p>Safe</p>
+						</div>
+					</div>
+					<div class="col-4" style="--clr: rgb(73 163 241)">
+						<div class="data-container">
+							<i class="fa-solid fa-droplet"></i>
+							<div class="data-content">
+								<h5>Humidity</h5>
+								<p>60%</p>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="message">
+							<p>Safe</p>
+						</div>
+					</div>
+					<div class="col-4" style="--clr: rgb(97 183 101)">
+						<div class="data-container">
+							<i class="fa-solid fa-cloud"></i>
+							<div class="data-content">
+								<h5>CO2 Concentration</h5>
+								<p>35</p>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="message">
+							<p>Safe</p>
+						</div>
+					</div>
+					<div class="col-4" style="--clr: rgb(227 47 110)">
+						<div class="data-container">
+							<i class="fa-solid fa-skull-crossbones"></i>
+							<div class="data-content">
+								<h5>GAS Concentration</h5>
+								<p>35</p>
+							</div>
+						</div>
+						<div class="line"></div>
+						<div class="message">
+							<p>Safe</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="chart-container">
+					<div class="col-3" style="--clr: rgb(243, 134, 115) ">
+						<div class="chart">
+							<canvas id="oneChart"></canvas>
+						</div>
+						<div class="line"></div>
+						<div class="title-chart">
+							<i class="fa-solid fa-chart-simple"></i>
+							<span>Temperature Chart</span>
+						</div>
+					</div>
+					<div class="col-3" style="--clr: rgb(137, 196, 248)">
+						<div class="chart" >
+							<canvas id="twoChart"></canvas>
+						</div>
+						<div class="line"></div>
+						<div class="title-chart">
+							<i class="fa-solid fa-chart-simple"></i>
+							<span>Humidity Chart</span>
+						</div>
+					</div>
+					<div class="col-3" style="--clr: #ccc">
+						<div class="chart" >
+							<canvas id="threeChart"></canvas>
+						</div>
+						<div class="line"></div>
+						<div class="title-chart">
+							<i class="fa-solid fa-chart-simple"></i>
+							<span>Atmostphere Chart</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="history">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script>
+		const labels = [
+		  'January',
+		  'February',
+		  'March',
+		  'April',
+		  'May',
+		  'June',
+		];
+	  
+		const data = {
+		  labels: labels,
+		  datasets: [{
+			label: 'My First dataset',
+			backgroundColor: '#fff',
+			borderColor: '#fff',
+			color: 'tomato',
+			data: [0, 10, 5, 2, 20, 30, 45],
+		  }]
+		};
+	  
+		const config = {
+		  type: 'line',
+		  data: data,
+		  options: {
+			  layout: {
+				  padding: 15,
+			  }
+		  }
+		};
+	  </script>
+	  <script>
+		const threeChart = new Chart(
+		  document.getElementById('threeChart'),
+		  config
+		);
+
+		const oneChart = new Chart(
+		  document.getElementById('oneChart'),
+		  config
+		);
+		const twoChart = new Chart(
+		  document.getElementById('twoChart'),
+		  config
+		);
+		
+	  </script>
+</body>
+
+</html>

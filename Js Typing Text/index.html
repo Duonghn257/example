@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="text">I'm a <span class="animate"></span></div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- <script>
+      var typed = new Typed(".animate", {
+        strings: ["Web Developer", "Youtuber", "Web Designer"],
+        typeSpped: 100,
+        backSpeed: 70,
+        loop: true,
+      });
+    </script> -->
+
+    <script>
+      const text = document.querySelector("#text span");
+      var para = " Web Developer";
+      var i = 0;
+      var inner = "";
+      var type = true;
+      function typing() {
+        if (i < para.length && type) {
+          inner += para[i];
+          i++;
+          text.innerHTML = inner;
+          if (i == para.length) {
+            type = false;
+            console.log(type);
+          }
+          setTimeout(typing, 100);
+        } else if (type == false && i >= 1) {
+          i--;
+          inner = inner.substring(0, i);
+          console.log(inner);
+          text.innerHTML = inner;
+          if (i == 1) {
+            type = true;
+          }
+
+          setTimeout(typing, 100);
+        }
+      }
+      typing();
+    </script>
+  </body>
+</html>
